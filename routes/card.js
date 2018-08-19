@@ -73,24 +73,24 @@ router.post('/getcard', (req, res) => {
     })
   }
 });
-router.post('/balance', (req, res) => {
-  var card_number = req.body.card_number;
-  // var pin = req.body.pin;
-  if (!card_number) {
-    return res.status(422).json({ success: false, msg: 'card number not provided' });
-  } else {
-    cardsch.findOne({ card_number: card_number }, function (err, data) {
-      if (err) {
-        return res.status(422).json({ success: false, msg: err });
-      }
-      if (data.card_number == card_number) {
-        return res.status(200).json({ success: true, balance: data.balance });
-      } else {
-        return res.status(422).json({ success: false, msg: 'incorrect pin entered' });
-      }
-    })
-  }
-});
+// router.post('/balance', (req, res) => {
+//   var card_number = req.body.card_number;
+//   // var pin = req.body.pin;
+//   if (!card_number) {
+//     return res.status(422).json({ success: false, msg: 'card number not provided' });
+//   } else {
+//     cardsch.findOne({ card_number: card_number }, function (err, data) {
+//       if (err) {
+//         return res.status(422).json({ success: false, msg: err });
+//       }
+//       if (data.card_number == card_number) {
+//         return res.status(200).json({ success: true, balance: data.balance });
+//       } else {
+//         return res.status(422).json({ success: false, msg: 'incorrect pin entered' });
+//       }
+//     })
+//   }
+// });
 
 
 router.get('/getbalance/:card_number', (req, res) =>{
