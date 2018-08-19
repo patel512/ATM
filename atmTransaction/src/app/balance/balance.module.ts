@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CardComponent } from './card.component';
-import { CardService } from '../card.service';
+import { BalanceComponent } from './balance.component';
+import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [{
   path: '',
-  component: CardComponent
+  component: BalanceComponent
 }];
 @NgModule({
   imports: [
@@ -14,7 +13,6 @@ const routes: Routes = [{
     RouterModule.forChild(routes),
     ReactiveFormsModule
   ],
-  declarations: [CardComponent],
-  providers: [CardService]
+  declarations: [BalanceComponent]
 })
-export class CardModule { }
+export class BalanceModule { }
