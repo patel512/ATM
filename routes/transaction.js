@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var atmsch = require("../models/atmSchema");txsch
+var atmsch = require("../models/atmSchema");
 var cardsch = require("../models/cardSchema");
 var txsch = require("../models/transactionSchema");
 var express = require("express");

@@ -79,4 +79,27 @@ router.post('/getcard', (req, res) =>{
         })
         }
 });
+
+
+router.get('/getbalance/:card_number', (req, res) =>{
+    var card_number = req.param('card_number');
+   
+    if(!card_number){
+    return res.status(422).json({ success: false, msg: 'card number or pin not provided' });
+    }else{
+        cardsch.findOne({card_number:card_number},function(err,data){
+            if (err){
+                // console.log("hiiiiiiiiiiiiiiii",err)
+                return res.status(422).json({ success: false, msg: err });
+            }
+            if( data.card_number == card_number){
+
+                return res.status(200).json({ success: true, msg: 'Your balance is ',balance:data.balance});
+            }else{
+                return res.status(422).json({ success: false, msg: 'incorrect cardnumber entered' });
+                }
+        })
+        }
+});
+
 module.exports = router;

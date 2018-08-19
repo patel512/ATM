@@ -27,13 +27,16 @@ router.post("/depositCash", (req, res) => {
         currencyDenomination={denomination:req.body.denomination,count:req.body.count}
         var currDenom = results[0].currencyDenomination;
 
-        for(i=0;i<currDenom.length;i++){
-          if(currDenom[i].denomination === denomination)
-            return (currDenom[i].count);
+        
 
-          console.log(currDenom[i].count)
-          console.log('\n\n\n');
-        }
+        // for(i=0;i<currDenom.length;i++){
+        //   if(currDenom[i].denomination === denomination)
+        //     return (currDenom[i].count);
+
+        //   console.log(currDenom[i].count)
+        //   console.log('\n\n\n');
+        // }
+        
         // let existingdenom = currDenom[1].denomination
         // // if
         
