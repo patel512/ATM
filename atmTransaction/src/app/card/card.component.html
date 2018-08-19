@@ -1,0 +1,31 @@
+<form [formGroup]='cardForm' (ngSubmit)='onFormSubmit(cardForm.cardNumber,cardForm.cardPin)'>
+	<table>
+		<tr>
+			<td>Card Number </td>
+			<td>
+				<input formControlName='cardNumber' [(ngModel)]='cardForm.cardNumber'>
+				<div *ngIf='cardNumber.errors && isValidFormSubmitted != null && !isValidFormSubmitted' [ngClass]='"error"'>
+					<div *ngIf='cardNumber.errors.required'>
+						Card Number required.
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Pin </td>
+			<td>
+				<input type='password' formControlName='cardPin' [(ngModel)]='cardForm.cardPin'>
+				<div *ngIf='cardPin.errors && isValidFormSubmitted != null && !isValidFormSubmitted' [ngClass]='"error"'>
+					<div *ngIf='cardPin.errors.required'>
+						Pin number required.
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan='2'>
+				<button>Submit</button>
+			</td>
+		</tr>
+	</table>
+</form>

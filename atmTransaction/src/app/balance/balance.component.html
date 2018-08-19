@@ -1,0 +1,20 @@
+<form [formGroup]='balanceForm' (ngSubmit)='onFormSubmit(balanceForm.amount)'>
+  <table>
+    <tr>
+      <td>Enter amount to recharge your account </td>
+      <td>
+        <input formControlName='amount' [(ngModel)]='balanceForm.amount'>
+        <div *ngIf='isValidFormSubmitted != null && !isValidFormSubmitted' [ngClass]='"errors"'>
+          <div *ngIf='amount.errors.required'>
+            Amount can't empty
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+        <button>Continue</button>
+      </td>
+    </tr>
+  </table>
+</form>
